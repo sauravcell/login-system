@@ -36,6 +36,7 @@ app.use(session({
     },
     store: MongoStore.create({
         client: mongoose.connection.getClient(),
+        ttl: 60,
     }),
 }));
 // console.log('app-initialize');

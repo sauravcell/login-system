@@ -40,12 +40,11 @@ route.get('/user/verify/', (request, response) => {           //user token verif
 
 });
 
-
-
-
+//Need to be authenticated user 
 route.post('/user/logout/', (request, response) => {          //user logout
     console.log(`Inside logout route:`);
     console.log({'logout-session': request.sessionID});
+
     if (!request.user)
         return responseHandler('user not logged in', true, {}, 400, response);
     request.logout((err) => {
